@@ -1,0 +1,14 @@
+.p-button-rounded {
+  background-color: #d8e7d9;
+  border: none;
+  color: black;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+}
+.titre {
+  color: black;
+  size: 20px;
+}

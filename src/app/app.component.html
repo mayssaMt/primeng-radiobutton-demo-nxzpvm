@@ -1,0 +1,32 @@
+<div *ngFor="let question of questionList; let i = index">
+  <div class="flex justify-content-between">
+    <div class="col-10">
+      <strong>{{ i + 1 }}.</strong>
+      <label style="margin-left: 10px" for="correction">
+        {{ question.orderDescription }}
+      </label>
+    </div>
+    <div>
+      <p-radioButton
+        name="group1"
+        value="1"
+        [(ngModel)]="selectedOption"
+        inputId="rb1"
+        (change)="changeLegend()"
+      ></p-radioButton>
+      <label for="rb1" class="ui-radiobutton-label">Oui</label>
+
+      <p-radioButton
+        name="group1"
+        value="0"
+        [(ngModel)]="selectedOption"
+        inputId="rb2"
+        (change)="changeLegend()"
+      ></p-radioButton>
+      <label for="rb2" class="ui-radiobutton-label">Non</label>
+    </div>
+    <button pButton pRipple type="button" label="" class="p-button-rounded">
+      Soumettre
+    </button>
+  </div>
+</div>
