@@ -14,8 +14,12 @@ export class AppComponent {
   submitted = false;
   title: string = 'Vous allez corrigé à ';
   question: any;
+  options: Array<any> = [
+    { name: 'oui', id: 1, selected: false },
+    { name: 'non', id: 2, selected: false },
+  ];
+  answers: Array<any> = [];
   jsonObject: any = {
-    code: 200,
     corrections: [
       {
         correctionId: 1,
@@ -30,21 +34,25 @@ export class AppComponent {
             orderDescription:
               'QCM Chapter 6 : Est-ce que votre collègue a eu une note >= 75%',
             correctionResult: 1,
+            selected: false,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 25%',
             correctionResult: 2,
+            selected: false,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 50%',
             correctionResult: 3,
+            selected: false,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 75%',
             correctionResult: 4,
+            selected: false,
           },
         ],
       },
@@ -60,9 +68,17 @@ export class AppComponent {
     this.questionList = this.jsonObject.corrections[0].correctionResults;
   }
 
-  changeLegend() {
-    this.title = 'Vous avez soumis votre correction à ';
-    this.isToggleable = !this.isToggleable;
-    this.showContent = !this.showContent;
+  onSelect(question: any, option: any) {
+    this.questionList.forEach((x) => {
+      if (x.correctionResult == question.correctionResult) {
+        if (option.id == 1) {
+          x.selected = true;
+        } else {
+          x.selected = false;
+        }
+      }
+    });
+    console.log(this.questionList);
   }
+  onSubmit() {}
 }
