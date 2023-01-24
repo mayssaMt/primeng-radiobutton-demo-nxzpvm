@@ -34,25 +34,25 @@ export class AppComponent {
             orderDescription:
               'QCM Chapter 6 : Est-ce que votre collègue a eu une note >= 75%',
             correctionResult: 1,
-            selected: false,
+            selected: 0,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 25%',
             correctionResult: 2,
-            selected: false,
+            selected: 0,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 50%',
             correctionResult: 3,
-            selected: false,
+            selected: 0,
           },
           {
             orderDescription:
               'QCM 2 : Est-ce que votre collègue a eu une note >= 75%',
             correctionResult: 4,
-            selected: false,
+            selected: 0,
           },
         ],
       },
@@ -72,11 +72,12 @@ export class AppComponent {
     this.questionList.forEach((x) => {
       if (x.correctionResult == question.correctionResult) {
         if (option.id == 1) {
-          x.selected = true;
-        } else {
-          x.selected = false;
+          x.selected = 1;
+        } else if (option.id == 2) {
+          x.selected = 0;
         }
       }
+      // console.log(x.correctionResult);
     });
     console.log(this.questionList);
   }
